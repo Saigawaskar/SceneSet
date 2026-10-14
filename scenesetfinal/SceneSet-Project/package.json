@@ -1,0 +1,17 @@
+{
+  "name": "sceneset",
+  "version": "1.0.0",
+  "private": true,
+  "description": "SceneSet — Plan Together, Stress Less",
+  "workspaces": ["client", "server"],
+  "scripts": {
+    "dev": "concurrently -n API,WEB -c magenta,cyan \"npm:dev:server\" \"npm:dev:client\"",
+    "dev:server": "npm run dev --workspace sceneset-server",
+    "dev:client": "npm run dev --workspace sceneset-client",
+    "demo": "node server/src/demo.js",
+    "build": "npm run build --workspace sceneset-client",
+    "test": "npm test --workspace sceneset-server"
+  },
+  "devDependencies": { "concurrently": "^9.1.2" },
+  "engines": { "node": ">=20.0.0" }
+}
